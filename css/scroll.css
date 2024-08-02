@@ -1,0 +1,84 @@
+/* .container {
+    width: 100%;
+    overflow-x: scroll;
+    Enable horizontal scrolling
+    white-space: nowrap;
+}
+
+.scrolling-wrapper {
+    white-space: nowrap;
+}
+
+.item {
+    display: inline-block;
+    width: 300px;
+    Set your desired item width
+    height: 200px;
+    Set your desired item height
+    margin-right: 20px;
+    background: #be4848;
+    Space between items
+} */
+
+.container {
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.scrolling-wrapper {
+    white-space: nowrap;
+    transition: transform 0.5s ease;
+    /* Smooth transition for sliding */
+}
+
+.item {
+    display: inline-block;
+    width: 200px;
+    /* Set your desired item width */
+    height: 200px;
+    /* Set your desired item height */
+    margin-right: 20px;
+    /* Space between items */
+}
+
+.slider-toggle {
+    display: none;
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.slider-arrow:hover {
+    color: blue;
+    /* Change color on hover if desired */
+}
+
+.slider-toggle:checked + .container .scrolling-wrapper {
+    transform: translateX(calc(-100% - 20px));
+    /* Adjust value to fit item width and margin */
+}
+
+.slider-toggle:checked + .container .scrolling-wrapper .item {
+    pointer-events: none;
+    /* Disable click on items when slider is checked */
+    opacity: 0;
+    /* Hide items when slider is checked */
+    transition: opacity 0s linear 0.25s;
+    /* Delay the opacity transition to align with the animation */
+}
+
+.slider-toggle:checked + .container .scrolling-wrapper + .slider-arrow {
+    pointer-events: none;
+    /* Disable click on the arrow when slider is checked */
+}
+
+.slider-toggle:checked + .container .scrolling-wrapper + .slider-arrow:after {
+    content: '◀';
+    /* Change the arrow to left arrow when slider is checked */
+}
